@@ -123,47 +123,60 @@ https://user-images.githubusercontent.com/55318172/146631994-e1cac137-1664-4cfe-
 
 Check out the [expansion pack repository](https://github.com/theodorusclarence/expansion-pack) for the commands
 
-
 //////////////////////////////////////////////////////////////////////
-   12/16/22 11:00
+12/16/22 11:00
+
 1. App was created by command:
    npx create-next-app -e https://github.com/theodorusclarence/ts-nextjs-tailwind-starter support-val
 2. Creating errors:
    yarn install v1.22.19
-[1/4] Resolving packages...
-[2/4] Fetching packages...
-[3/4] Linking dependencies...
-[4/4] Building fresh packages...
-$ husky install
-.git can't be found (see https://git.io/Jc3F9)
-error Command failed with exit code 1.
-info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+   [1/4] Resolving packages...
+   [2/4] Fetching packages...
+   [3/4] Linking dependencies...
+   [4/4] Building fresh packages...
+   $ husky install
+   .git can't be found (see https://git.io/Jc3F9)
+   error Command failed with exit code 1.
+   info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
 
 Aborting installation.
-  yarn install has failed.
+yarn install has failed.
 
 A new version of `create-next-app` is available!
 You can update by running: yarn global add create-next-app
 
 3. yarn dev
-   http://localhost:3000/  is working right
+   http://localhost:3000/ is working right
 
 ------> next add amplify
-   12/16/22 12:00
-4. amplify init   
-   from now I have app: 
-      https://us-east-2.console.aws.amazon.com/amplify/home?region=us-east-2#/d3ge2xg31xsi69
-5. amplify hosting add
-6. amplify publish
-   Distribution Directory is pointing to a valid path.🛑 Unknown error
+12/16/22 12:00 4. amplify init  
+ from now I have app:
+https://us-east-2.console.aws.amazon.com/amplify/home?region=us-east-2#/d3ge2xg31xsi69 5. amplify hosting add 6. amplify publish
+Distribution Directory is pointing to a valid path.🛑 Unknown error
 
-   Resolution: Please report this issue at https://github.com/aws-amplify/amplify-cli/issues and include the project identifier from: 'amplify diagnose --send-report'Learn more at: https://docs.amplify.aws/cli/project/troubleshooting/
+Resolution: Please report this issue at https://github.com/aws-amplify/amplify-cli/issues and include the project identifier from: 'amplify diagnose --send-report'Learn more at: https://docs.amplify.aws/cli/project/troubleshooting/
 
-   Why problem? 
-   is need to do hosting by Github way:
+Why problem?
+is need to do hosting by Github way:
 
-5a. 
-   1). Open Github Desktop
-   2). New repository support-val
-   3). Publish on Github
+5a.
+1). Open Github Desktop
+2). New repository support-val
+3). Publish on Github
 
+---
+
+21/12/22
+Problem: hosting of app.
+Now amplify(AWS) support only Github(and others CMS) for deploy app.
+For fix it:
+
+1.  Deploy app to Github.
+    2 Delete app support-val from amplify.
+2.  Delete amplify folder
+3.  amplify init
+4.  amplify hosting add
+    -- select: Continuous deployment (Git-based deployments)
+    -- on AWS console select: Hosting environment -> Github -> select repository support-val
+    --> go to end of process
+    Now every commit on github will auto buil amplify app on AWS
